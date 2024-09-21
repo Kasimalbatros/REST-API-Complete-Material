@@ -1,0 +1,41 @@
+Delete the content using fs module
+-----------------------------------------------------------------------
+
+
+
+o delete a file using the fs module in Node.js with Express, you can use the fs.unlink method. Here's an example of how to create an Express route that deletes a file:
+
+Code to Delete a File:
+js
+Copy code
+const express = require('express');
+const fs = require('fs');
+const app = express();
+
+app.delete('/delete-file', (req, res) => {
+  const filePath = 'example.txt'; // Path to the file you want to delete
+
+  fs.unlink(filePath, (err) => {
+    if (err) {
+      res.status(500).send('Error deleting the file');
+    } else {
+      res.send('File deleted successfully');
+    }
+  });
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+
+-----------------------------------------------------------------------------------------------
+How this works:
+The DELETE request to /delete-file removes the specified file (example.txt in this case).
+fs.unlink is the function that deletes the file. If the file doesn't exist or another error occurs, it returns an error; otherwise, it responds with a success message.
+Example Response:
+If the file is successfully deleted:
+
+Response: "File deleted successfully"
+If the file doesn't exist or another issue happens:
+
+Response: "Error deleting the file"

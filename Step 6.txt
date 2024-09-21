@@ -1,0 +1,37 @@
+6. Now Add ned data with some content to the imported file and check whether is gets added or 
+not ?
+
+(Hint:-  use fs module to write the data, add or push data using POST Request,
+check imported file last rows where its added or not, id not comes from front end so
+we use id.length after all id it gets added so it comes at last, Open POSTMAN --> Body -->
+x-www-form fill data and send them with POST request with given URL )
+
+
+Ans:-
+
+const express=require("express");
+const users=require("./MOCK_DATA.json");
+const fs=require("fs");
+
+const app=express();
+
+const PORT=3000;
+
+app.use(express.json())
+
+app.use(express.urlencoded({ extended: false }))
+
+app.post("/api/users",(req,res) => {
+  const body=req.body;
+users.push({...body,id:users.length+1});
+fs.writeFile("./MOCK_DATA.json",JSON.stringify(users),(err,data)=>{
+  return res.json({status: "success", id :"user.length"});
+})
+});
+
+app.listen(PORT,()=>{
+  console.log(`Program is running successfully on ${PORT}`)
+});
+
+
+

@@ -1,0 +1,9 @@
+7. PUT, PATCH , DELETE Practice yourself with Fs modlue youeslf its easy.
+
+Ans:-
+
+Do it yourself its easy....
+
+
+
+Rest API COmpleted Successfully.

@@ -1,0 +1,42 @@
+5. Submit some content having some info like name , job_titile, gender , age etc ?
+
+(Hint:- use POST request, Middleware urlencoded :false, postman, body--> x-www-form fill data
+
+
+Ans:-
+
+const express=require("express");
+const users=require("./MOCK_DATA.json");
+
+const app=express();
+const PORT=3000;
+
+app.use(express.json())
+
+app.use(express.urlencoded({ extended: true }))
+
+app.post("/submit",(req,res)=>{
+  const content=req.body;
+  console.log(content);
+  res.json({status:"pending"})    ----> Showing User Json Data the status pending
+})
+app.listen(PORT,()=>{
+  console.log(`Program is running successfully on ${PORT}`)
+});
+
+
+
+-----------------------------------------------------------------------------------
+Question
+
+when 
+app.use(express.urlencoded({ extended: true }))  will be true and    ---> For Complex like Nested
+when 
+app.use(express.urlencoded({ extended: true })) will be false  ?     ---> Simpler key value pair, or form data
+
+Ans:-
+
+Which one to choose?
+Choose extended: true if you expect complex data (like arrays, objects, or nested fields) from the forms you're handling.
+
+Choose extended: false for basic forms where you only need simple key-value pairs.

@@ -1,0 +1,23 @@
+4. Show Json File Content In Html in different Path or Route ?
+
+
+const express=require("express");
+const users=require("./MOCK_DATA.json");
+
+const app=express();
+const PORT=3000;
+
+
+app.get("/",(req,res)=>{
+  const a=`
+  <ul>
+   ${users.map(user=>`<li>${user.first_name}</li>`).join('')}
+
+  </ul>`
+  res.send(a);
+});
+
+
+app.listen(PORT,()=>{
+  console.log(`Program is running successfully on ${PORT}`)
+});

@@ -1,0 +1,24 @@
+Modify or override file using fs module
+------------------------------------------------------------------
+
+const express = require('express');
+const fs = require('fs');
+const app = express();
+
+app.use(express.json()); // For parsing JSON request bodies
+
+app.put('/overwrite-file', (req, res) => {
+  const newContent = req.body.content; // Get new content from request body
+
+  fs.writeFile('example.txt', newContent, (err) => {
+    if (err) {
+      res.status(500).send('Error overwriting the file');
+    } else {
+      res.send('File content overwritten successfully');
+    }
+  });
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});

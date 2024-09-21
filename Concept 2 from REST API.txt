@@ -1,0 +1,39 @@
+Below code find used for Dynamic path
+if enter 2 then those having id=2 their value gets returned.
+
+This code defines an Express.js route that retrieves a specific user based on their
+id from a list of users and returns the user as a JSON response.
+
+Ex:- 
+
+app.get("/api/users/:id",(req,res) => {
+  const id=Number(req.params.id);
+  const user=users.find((user) => user.id === id);
+  return res.json(user);
+});
+
+
+
+output:-
+
+http://localhost:3000/api/users/2    <Enter>
+
+{"id":2,"first_name":"Frannie","last_name":"Huison","email":"fhuison1@flickr.com","gender":"Female","job_title":"Internal Auditor"}
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+const user = users.find((user) => user.id === id);
+  // The `users` array is searched for a user whose 'id' matches the requested 'id'.
+  // `find()` returns the first matching user object (or undefined if no match is found).
+
+
+
+
+
+You could improve the code by handling this case with a custom error message:
+
+javascript
+Copy code
+if (!user) {
+  return res.status(404).json({ error: "User not found" });
+}

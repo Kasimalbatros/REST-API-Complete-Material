@@ -1,0 +1,35 @@
+This Code will Push Form Data to MOCK_DATA.json  file
+
+
+const express=require("express");
+const users=require("./MOCK_DATA.json");
+const fs=require("fs");
+
+app.post("/api/users",(req,res) => {
+  const body=req.body;
+users.push({...body,id:users.length+1});
+fs.writeFile("./MOCK_DATA.json",JSON.stringify(users),(err,data)=>{
+  return res.json({status: "success", id :user.length});
+})
+});
+
+---------
+Open Postman
+
+http://localhost:3000/api/users  --> POST 
+
+Body --> x-www-form-urlencoded ---> First_name, last_name, etc
+
+Send  <Click>
+
+
+Now open MOCK_DATA.json  file  you can see your inserted data
+
+
+===============================================================================================
+
+Important Point 
+
+from Frontend we are not able to put Id, So we are using id.length
+this means that the next data will added next after All Id
+Ex:- if you have 1000 id then next one Added to 1001.

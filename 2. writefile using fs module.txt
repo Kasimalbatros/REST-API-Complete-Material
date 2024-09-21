@@ -1,0 +1,26 @@
+Write file using fs module
+------------------------------
+
+Ex:-
+
+const express = require('express');
+const fs = require('fs');
+const app = express();
+
+app.use(express.json()); // For parsing JSON request bodies
+
+app.post('/write-file', (req, res) => {
+  const content = req.body.content; // Get content from request body
+
+  fs.writeFile('output.txt', content, (err) => {
+    if (err) {
+      res.status(500).send('Error writing to the file');
+    } else {
+      res.send('File written successfully');
+    }
+  });
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});

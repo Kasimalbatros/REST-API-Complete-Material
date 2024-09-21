@@ -1,0 +1,28 @@
+Fetch API  provides  an interface for fetching (sending/receiving) resources.
+
+Fetch API uses Request and Response objects.
+
+fetch()  method is used to fetch data
+
+AJAX --> (Asunchronous Javascript and XML)in old days data transfer in XML format but 
+now a days Data Transfer in JSON format called as AJAJ(or Json)
+
+JSON  ---> Javascript object notation
+
+Fetch is Asynchronous in nature because it returns Promises.
+
+Json is also Asynchronous in nature.
+
+
+read something about--->
+
+Http status code in Google (Like:- 200 means Successful Execution.)
+
+
+html verb means All Html requests like GET,POST,PUT,PATCH,DELETE
+
+
+
+
+
+See gitHUB:- https://github.com/shradha-khapra/JavaScriptSeries/blob/main/CurrencyConverter/style.css

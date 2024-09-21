@@ -1,0 +1,48 @@
+DELETE Request Example
+DELETE is used to remove a resource. 
+This example demonstrates how to handle a DELETE request to delete a user by their ID.
+
+-----------------------------------------------------------------------------------------------------
+
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+let users = [
+    { id: 1, name: 'Alice', email: 'alice@example.com' },
+    { id: 2, name: 'Bob', email: 'bob@example.com' }
+];
+
+// DELETE request to delete a user by ID
+app.delete('/users/:id', (req, res) => {
+    const { id } = req.params;
+
+    const userIndex = users.findIndex(u => u.id === parseInt(id));
+
+    if (userIndex === -1) {
+        return res.status(404).json({ message: 'User not found' });
+    }
+
+    users.splice(userIndex, 1);
+
+    res.status(200).json({ message: 'User deleted successfully' });
+});
+
+app.listen(3000, () => {
+    console.log('Server running on port 3000');
+});
+
+
+
+
+
+
+
+Important
+=========
+
+Recap:
+PUT: Replaces the entire resource with new data.
+PATCH: Partially updates fields of a resource.
+DELETE: Deletes a resource.

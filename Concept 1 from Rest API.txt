@@ -1,0 +1,65 @@
+Showing JSON File into be like HTML Content
+
+Using Template Literals in HTML
+If you want to dynamically create HTML content, template literals make it much simpler:
+
+let items = ['Apple', 'Banana', 'Orange'];
+let html = `
+  <ul>
+    ${items.map(item => `<li>${item}</li>`).join('')}
+  </ul>
+`;
+console.log(html);
+
+---------------------------------------------------------------------------------------------------
+
+How to show the json File into html content
+--------------------------------------------
+
+**inside express***
+
+const express=require("express");
+const users=require("./MOCK_DATA.json");
+
+const app=express();
+
+const PORT=3000;
+
+/*app.get("/users", (req, res) => {
+  const html = `
+    <ul>
+      ${users.map(user => `<li>${user.first_name}</li>`).join('')}
+    </ul>
+  `;
+  res.send(html); // Send the HTML response
+});
+*/
+
+
+
+
+
+
+Q1. What is the use of Backtick(`) and ${}  in Javascript  ?
+
+This are Template Literals features of ES6. 
+
+Note:- backrick(`) is used instead of quotes(' ,").  And ${} used to embed the variables directly into the Strings.
+
+See Example:-
+
+Suppose you want to create a greeting that includes a person's name. In regular JavaScript strings, you would concatenate like this:
+
+javascript
+
+let name = "Alice";
+let greeting = "Hello, " + name + "!";
+console.log(greeting); // Output: Hello, Alice!
+
+
+With template literals, you can use ${} to embed the variable directly into the string:
+
+javascript
+let name = "Alice";
+let greeting = `Hello, ${name}!`;
+console.log(greeting); // Output: Hello, Alice!

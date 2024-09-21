@@ -1,0 +1,45 @@
+PUT Request Example
+PUT is used to completely replace an existing resource. 
+This example demonstrates how to handle a PUT request to update a user's data.
+
+------------------------------------------------------------------------------------------------
+
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+let users = [
+    { id: 1, name: 'Alice', email: 'alice@example.com' },
+    { id: 2, name: 'Bob', email: 'bob@example.com' }
+];
+
+// PUT request to update an entire user
+app.put('/users/:id', (req, res) => {
+    const { id } = req.params;
+    const { name, email } = req.body;
+
+    const user = users.find(u => u.id === parseInt(id));
+
+    if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Completely replace user details
+    user.name = name;
+    user.email = email;
+
+    res.status(200).json({ message: 'User updated successfully', user });
+});
+
+app.listen(3000, () => {
+    console.log('Server running on port 3000');
+});
+
+
+Important Remainder
+
+Recap:
+PUT: Replaces the entire resource with new data.
+PATCH: Partially updates fields of a resource.
+DELETE: Deletes a resource.

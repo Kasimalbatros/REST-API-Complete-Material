@@ -1,0 +1,21 @@
+3. find Specified id or particular id detail of json file details 
+
+(Hint: use Dynamic path Parameter, Number datatype and find () )   ?
+
+
+
+const express=require("express");
+const users=require("./MOCK_DATA.json");
+
+const app=express();
+const PORT=3000;
+
+app.get("/users/api/:id",(req,res)=>{
+  const id=Number(req.params.id);
+  const user=users.find((user) => user.id === id);
+  return res.json(user);
+});
+
+app.listen(PORT,()=>{
+  console.log(`Program is running successfully on ${PORT}`)
+});

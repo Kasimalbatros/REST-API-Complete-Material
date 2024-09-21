@@ -1,0 +1,24 @@
+1. GET Http request at path "/ " show Hello world  ?
+
+2. Show json data, First import the file and then show them in server  ?
+
+3. find Specified id or particular id detail of json file details 
+
+(Hint: use Dynamic path Parameter, Number datatype and find () )   ?
+
+4. Show Json File Content In Html in different Path or Route ?
+
+5. Submit some content having some info like name , job_titile, gender , age etc ?
+
+(Hint:- use POST request, Middleware urlencoded :false, postman, body--> x-www-form fill data)
+
+6. Now Add ned data with some content to the imported file and check whether is gets added or 
+not ?
+
+(Hint:-  use fs module to write the data, add or push data using POST Request,
+check imported file last rows where its added or not, id not comes from front end so
+we use id.length after all id it gets added so it comes at last )
+
+7. PUT, PATCH , DELETE Practice yourself with Fs modlue youeslf its easy.
+
+8. REST API Completed Successfully.
